@@ -121,7 +121,7 @@ static struct parameters parse_args(int argc, char *argv[])
                 case 'u': p.frame_us = atoi(optarg); break;
                 case 'c': p.channels = atoi(optarg); break;
                 case 's': p.enc_samples = atoi(optarg); break;
-                case 'f': p.enc_samples = atoi(optarg); break;
+                case 'f': p.frame_bytes = atoi(optarg); break;
                 default:
                     error(EINVAL, "Option %s", arg);
             }

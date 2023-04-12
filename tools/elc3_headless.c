@@ -239,7 +239,7 @@ int main(int argc, char *argv[])
             lc3_encode(enc[ich],
                 pcm_fmt, pcm + ich * pcm_sbytes, nch,
                 frame_bytes, out[ich]);
-        fprintf(stdout, "frame_bytes:%d", frame_bytes);
+        fprintf(stdout, "frame_bytes:%d\n", frame_bytes);
         lc3bin_write_data_only(fp_out, out, nch, frame_bytes);
     }
 
