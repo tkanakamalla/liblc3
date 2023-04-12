@@ -68,4 +68,9 @@ void lc3bin_write_data(FILE *fp,
     const void *data, int nchannels, int frame_bytes);
 
 
+int lc3bin_read_data_only(FILE *fp, int nchannels, void *buffer, uint16_t frame_bytes);
+void lc3bin_write_data_only(FILE *fp,
+    const void *data, int nchannels, int frame_bytes);
+
+
 #endif /* __LC3BIN_H */

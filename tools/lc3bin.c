@@ -73,6 +73,16 @@ int lc3bin_read_data(FILE *fp, int nchannels, void *buffer)
             || nbytes % nchannels
             || fread(buffer, nbytes, 1, fp) < 1)
         return -1;
+    fprintf(stdout, "nbytes: %d\n", nbytes);
+    return nbytes / nchannels;
+}
+
+int lc3bin_read_data_only(FILE *fp, int nchannels, void *buffer, uint16_t frame_bytes)
+{
+
+    uint16_t nbytes = frame_bytes * nchannels;
+    if (fread(buffer, nbytes, 1, fp) < 1)
+        return -1;
 
     return nbytes / nchannels;
 }
@@ -105,6 +115,18 @@ void lc3bin_write_data(FILE *fp,
 {
     uint16_t nbytes = nchannels * frame_bytes;
     fwrite(&nbytes, sizeof(nbytes), 1, fp);
+
+    fwrite(data, 1, nbytes, fp);
+}
+
+
+/**
+ * Write LC3 block of data
+ */
+void lc3bin_write_data_only(FILE *fp,
+    const void *data, int nchannels, int frame_bytes)
+{
+    uint16_t nbytes = nchannels * frame_bytes;
 
     fwrite(data, 1, nbytes, fp);
 }

@@ -30,3 +30,14 @@ executable('dlc3', ['dlc3.c'],
     link_with : lc3toolslib,
     include_directories: inc,
     install: true)
+
+
+executable('elc3_headless', ['elc3_headless.c'],
+    link_with : lc3toolslib,
+    include_directories: inc,
+    install: true)
+
+executable('dlc3_headless', ['dlc3_headless.c'],
+    link_with : lc3toolslib,
+    include_directories: inc,
+    install: true)
